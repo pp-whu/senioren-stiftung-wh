@@ -1,0 +1,28 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <style>
+      g {
+        display: none;
+      }
+      g:target,
+      g:target g {
+        display: inline;
+      }
+      .white {
+        color: #ffffff;
+      }
+      .gray {
+        color: #777777;
+      }
+    </style>
+
+    <symbol id="menu-button" viewBox="-24.955 887.045 50 40">
+      <title>Menu-Button</title>
+      <path fill="currentColor" d="M23.706 893.002h-47.321c-.74 0-1.339-.571-1.339-1.276v-3.403c0-.705.6-1.277 1.339-1.277h47.321c.74 0 1.339.572 1.339 1.277v3.403c0 .705-.6 1.276-1.339 1.276zm0 17.021h-47.321c-.74 0-1.339-.572-1.339-1.276v-3.404c0-.704.6-1.276 1.339-1.276h47.321c.74 0 1.339.572 1.339 1.276v3.404c0 .704-.6 1.276-1.339 1.276zm0 17.022h-47.321c-.74 0-1.339-.571-1.339-1.277v-3.403c0-.705.6-1.276 1.339-1.276h47.321c.74 0 1.339.571 1.339 1.276v3.403c0 .706-.6 1.277-1.339 1.277z"/>
+    </symbol>
+
+
+  </defs>
+  <!-- <g id="language-passive"> <use class="black" xlink:href="#language"/> </g> -->
+</svg>
