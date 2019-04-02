@@ -1,0 +1,29 @@
+@charset 'utf-8';
+@import 'settings';
+@import 'mixins';
+@import 'foundation';
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-visibility-classes;
+@include foundation-float-classes; //reset//
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+%clearfix {
+  @include clearfix();
+}
+
+.outer {
+  position: relative;
+  max-width: 100%;
+  // overflow: hidden;
+}
+
+a {
+  text-decoration: underline;
+}

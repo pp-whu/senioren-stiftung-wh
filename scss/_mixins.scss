@@ -1,0 +1,112 @@
+//mixins
+//fluidType
+@mixin fluidType($min-font, $max-font, $min-vw, $max-vw) {
+  font-size: calc(#{$min-font} + #{strip-unit($max-font - $min-font)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+}
+
+//Layout
+@mixin col($class-A, $class-B, $col, $sum, $gab: 32px, $bol: true) {
+  .#{$class-A} {
+    display: flex;
+    flex-wrap: wrap;
+    @if($bol) {
+      margin-top: rem-calc(-$gab);
+      margin-left: rem-calc(-$gab);
+      margin-right: rem-calc(-$gab);
+    }
+  }
+
+  .#{$class-B} {
+    width: percentage($col / $sum);
+    @if($bol) {
+      padding: rem-calc($gab);
+    }
+  }
+}
+
+//aspectratio
+@mixin aspectratio($w, $h) {
+  &:before {
+    content: '';
+    display: block;
+    float: left;
+    padding-top: calc($h / $w * 100%);
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+//Flex Order List
+@mixin config-order($prefix, $order...) {
+    @each $i in $order {
+        .#{$prefix}#{nth($i, 1)} {
+            order: nth($i, 2);
+        }
+    }
+}
+
+//Flex Order
+@mixin config-flex-order($class-A, $prefix, $order...) {
+  .#{$class-A} {
+    display: flex;
+    @each $i in $order {
+      .#{$prefix}#{nth($i, 1)} {
+        order: nth($i, 2);
+      }
+    }
+  }
+}
+
+
+
+//Placehoder
+%btn-circle {
+  border: 2px solid $dark-gray;
+  width: rem-calc(140);
+  height: rem-calc(140);
+  border-radius: 100%;
+  color: $dark-gray;
+  display: block;
+  position: relative;
+  text-align: center;
+  margin-bottom: $grid-column-gutter;
+  padding-top: $grid-column-gutter/1.5;
+  text-decoration: none;
+
+  .symbol {
+    width: rem-calc(45);
+    height: rem-calc(45);
+    color: $dark-gray;
+    display: inline-block;
+    text-align: center;
+  }
+
+  span {
+    display: inherit;
+  }
+
+  &:focus,
+  &:hover {
+    color: $green;
+    border-color: $green;
+
+    .symbol {
+      color: $green;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+%link-arrow {
+  content: '❯';
+  display: inline-block;
+  margin-left: rem-calc(10);
+  color: $green;
+}
