@@ -19,11 +19,15 @@
 }
 
 .outer {
-  position: relative;
   max-width: 100%;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 a {
   text-decoration: underline;
+}
+
+.page-wrap {
+  max-width: $global-width;
+  margin: 0 auto;
 }
