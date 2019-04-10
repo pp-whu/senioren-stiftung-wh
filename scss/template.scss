@@ -23,11 +23,145 @@
   overflow: hidden;
 }
 
-a {
-  text-decoration: underline;
-}
-
 .page-wrap {
   max-width: $global-width;
   margin: 0 auto;
+}
+
+.peach {
+  background: $peach;
+}
+//Menu Button
+
+.toggle {
+  background: $blue;
+}
+
+.menu-button {
+  cursor: pointer;
+  margin: $grid-column-gutter/4 0 $grid-column-gutter/6 $grid-column-gutter/4;
+
+  &.active {
+    .menu-button-inner {
+      transform: rotate(225deg);
+      transition-delay: 0.12s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &::before {
+        top: 0;
+        opacity: 0;
+        transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-90deg);
+        transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    }
+  }
+}
+
+.menu-button-box {
+  width: rem-calc(65);
+  height: rem-calc(50);
+  padding: rem-calc(18);
+  margin: rem-calc(2);
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  transition: transform 0.25s;
+  background-color: $blue;
+}
+
+.menu-button-label {
+  color: $black;
+  font-size: rem-calc(14);
+  font-weight: bold;
+  display: block;
+  padding: rem-calc(0) 0 rem-calc(4) rem-calc(4);
+}
+
+.menu-button-inner {
+  display: block;
+  top: 100%;
+  left: rem-calc(10);
+  margin-top: rem-calc(-27);
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+  &,
+  &::after,
+  &::before {
+    width: rem-calc(45);
+    height: rem-calc(5);
+    background-color: $dark-gray;
+    border-radius: rem-calc(1);
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+  }
+
+  &::before {
+    top: rem-calc(11);
+    right: rem-calc(0);
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+  }
+
+  &::after {
+    bottom: rem-calc(11);
+    right: rem-calc(0);
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+}
+@include breakpoint (xxlarge) {
+  .menu-button {
+    display: none;
+  }
+}
+// Hauptnavigation
+
+.main-nav {
+  background: $blue;
+}
+
+#main-menu {
+  list-style: none;
+  margin-left: $grid-column-gutter/4;
+
+  a {
+    display: block;
+    padding: $grid-column-gutter/10 $grid-column-gutter/6;
+    transition: .7s;
+    font-size: rem-calc(21);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      background: $dark-blue;
+      color: $white;
+    }
+  }
+
+  .sub-menu {
+    list-style: none;
+
+    a {
+      font-size: rem-calc(18);
+      padding: $grid-column-gutter/10 $grid-column-gutter/6;
+    }
+  }
+}
+// breadcrumb
+
+.breadcrumb {
+  padding-left: $grid-column-gutter/4;
+  margin-top: $grid-column-gutter/6;
 }
